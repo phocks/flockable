@@ -1,4 +1,4 @@
-# New Project
+# Flockable
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
 
