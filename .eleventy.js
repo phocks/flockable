@@ -12,6 +12,7 @@ module.exports = function (config) {
   config.addPassthroughCopy('./src/favicon.ico');
   config.addPassthroughCopy('./src/manifest.json');
   config.addPassthroughCopy('./src/robots.txt');
+  config.addPassthroughCopy('./.nojekyll');
 
   // 404
   config.setBrowserSyncConfig({
