@@ -13,7 +13,9 @@ module.exports = function (eleventyConfig) {
     'woff',
     'woff2',
   ]);
+  
   eleventyConfig.addPassthroughCopy('static');
+  eleventyConfig.addPassthroughCopy('.nojekyll');
 
   return {
     dir: {
