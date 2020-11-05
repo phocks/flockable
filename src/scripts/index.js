@@ -22,3 +22,11 @@ if ('serviceWorker' in navigator) {
     }
   });
 }
+
+const init = async () => {
+  const response = await fetch('https://api.phocks.org/');
+  const result = await response.json();
+  console.log(result);
+};
+
+init();
