@@ -1,11 +1,1 @@
-/**
- * This file is just a silly example to show everything working in the browser.
- * When you're ready to start on your site, clear the file. Happy hacking!
- **/
-
-import confetti from '../web_modules/canvas-confetti.js';
-
-confetti.create(document.getElementById('canvas'), {
-  resize: true,
-  useWorker: true,
-})({ particleCount: 200, spread: 200 });
+import t from"../web_modules/canvas-confetti.js";import"../web_modules/alpinejs.js";const e=document.getElementById("canvas");e&&t.create(e,{resize:!0,useWorker:!0})({particleCount:100,spread:160}),"serviceWorker"in navigator&&window.addEventListener("load",()=>{try{navigator.serviceWorker.register("/service-worker.js")}catch(r){console.error("Service worker registration failed: ",r)}});
