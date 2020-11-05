@@ -1,18 +1,105 @@
 {
-  "scripts": {
-    "start": "snowpack dev",
-    "build": "snowpack build",
-    "test": "echo \"This template does not include a test runner by default.\" && exit 1",
-    "format": "prettier --write \"src/**/*.js\"",
-    "lint": "prettier --check \"src/**/*.js\""
+  "name": "11st-starter-kit",
+  "description": "11ty, powered by Snowpack with Tailwind CSS and Alpine.js.",
+  "version": "1.0.0",
+  "engines": {
+    "node": "12.x.x",
+    "npm": "6.x.x"
   },
-  "dependencies": {
-    "canvas-confetti": "^1.2.0"
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:stefanfrede/11st-starter-kit.git"
+  },
+  "keywords": [
+    "alpinjs",
+    "eleventy",
+    "netlify",
+    "snowpack",
+    "tailwindcss"
+  ],
+  "author": {
+    "name": "Stefan Frede",
+    "email": "stefan@frede.dev"
+  },
+  "license": "MIT",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/stefanfrede/11st-starter-kit/issues"
+  },
+  "homepage": "https://11st-starter-kit.netlify.app",
+  "browserslist": [
+    "defaults",
+    "maintained node versions",
+    "> 5%"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{css,js,html}": "stylelint --fix",
+    "*.{js,html}": "eslint --fix"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rimraf build",
+    "lighthouse": "lighthouse http://localhost:8080 --output=html --output-path=./report.html --view",
+    "serve": "serve --no-clipboard --listen 8080 dist",
+    "dev": "run-s clean dev:*",
+    "dev:snowpack": "snowpack dev",
+    "build": "run-s clean build:snowpack",
+    "build:snowpack": "snowpack build",
+    "lint": "run-s lint:*",
+    "lint:eslint": "eslint --ext .js --ext .html src/",
+    "lint:stylelint": "stylelint src/**/*.js src/**/*.html src/**/*.css",
+    "format": "run-s format:*",
+    "format:eslint": "eslint --ext .js --ext .html src/ --fix",
+    "format:stylelint": "stylelint src/**/*.js src/**/*.html src/**/*.css --fix",
+    "validate": "run-s build lint",
+    "setup": "npm install && npm run validate"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.0",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "babel-eslint": "^10.1.0",
+    "browserslist": "^4.14.6",
+    "core-js": "^3.6.5",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-html": "^6.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "lighthouse": "^6.4.1",
+    "lint-staged": "^10.5.1",
+    "prettier": "^2.1.2",
+    "serve": "^11.3.2",
+    "stylelint": "^13.7.2",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@snowpack/plugin-build-script": "^2.0.11",
+    "@snowpack/plugin-optimize": "^0.2.7",
+    "@snowpack/plugin-postcss": "^1.0.7",
     "@snowpack/plugin-run-script": "^2.2.0",
-    "prettier": "^2.0.5",
-    "snowpack": "^2.16.0"
+    "@tailwindcss/typography": "^0.2.0",
+    "alpinejs": "^2.7.3",
+    "autoprefixer": "^10.0.1",
+    "canvas-confetti": "^1.3.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.1.4",
+    "postcss-100vh-fix": "^1.0.2",
+    "postcss-cli": "^8.2.0",
+    "rimraf": "^3.0.2",
+    "snowpack": "^2.16.1",
+    "tailwindcss": "^1.9.6"
   }
 }

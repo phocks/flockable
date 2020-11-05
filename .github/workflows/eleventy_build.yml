@@ -6,22 +6,16 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-#       - name: Build
-#         uses: TartanLlama/actions-eleventy@v1.1
+
       - name: Install and Build 🔧
         run: |
           npm install
           npm run build
-#       - name: Deploy
-#         uses: peaceiris/actions-gh-pages@v1.1.0
-#         env:
-#           PUBLISH_DIR: build 
-#           PUBLISH_BRANCH: gh-pages
-#           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: build # The folder the action should deploy.
+          FOLDER: dist # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch

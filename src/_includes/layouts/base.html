@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html class="text-gray-900 antialiased leading-tight" lang="en">
+  <head>
+    {% include "partials/site-head.html" %}
+  </head>
+  <body class="grid grid-rows-layout min-h-screen bg-white">
+    {% include "partials/site-header.html" %}
+
+    <main id="main-content" tabindex="-1">
+      {% block content %}{% endblock %}
+    </main>
+
+    {% include "partials/site-footer.html" %}
+
+    <script type="module" src="/_dist_/index.js"></script>
+  </body>
+</html>
