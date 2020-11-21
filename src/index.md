@@ -5,7 +5,7 @@ meta:
   desc:
     ''
 intro:
-  title: ''
+  title: 'Welcome to Flockable'
   desc:
     ''
 primaryCTA:
